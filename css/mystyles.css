@@ -1,0 +1,174 @@
+html, body, input, button, textarea, select {
+  font-family: 'Playfair Display', 'Noto Serif Traditional Chinese', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-transform: none;
+}
+body * { font-family: inherit; }
+
+:root {
+  --bs-primary-rgb:150, 195, 181;
+  --bs-link-color: rgb(209, 211, 91);
+  --bs-link-hover-color: rgb(150, 195, 181);
+}
+
+.social-icons .social-icon:hover {
+  background-color: rgba(209, 211, 91, 0.758);
+}
+
+/* --- 3. 更換區塊背景 --- */
+.resume-section {
+  background-color: rgb(255, 248, 220); /* 淡黃色 */
+  /* 如果要加背景圖，把下一行取消註解並換成你自己的圖片 */
+  background-image: url('../assets/img/Unknown.jpg');
+  background-size: cover; /* 讓圖片鋪滿，而不是重複 */
+  background-repeat: no-repeat;
+}
+.resume-section {
+  position: relative;
+  background-image: url('../assets/img/Unknown.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden; /* 讓遮罩不會跑出去 */
+}
+
+/* 模糊背景層（放在內容下方） */
+.resume-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  backdrop-filter: blur(8px); /* 模糊強度可改 */
+  background-color: hwb(0 69% 29% / 0.765); /* 可依需要調亮度/透明度 */
+  z-index: 0;
+}
+
+/* 讓區塊裡的文字在遮罩上層 */
+.resume-section * {
+  position: relative;
+  z-index: 1;
+}
+
+body {
+  color: #51483ee3; /* 改成你想要的顏色 */
+}
+
+.navbar .nav-link { text-transform: none; }
+p { line-height: 1.8; letter-spacing: 0.2px; }
+
+.img-profile {
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
+  transition: .4s;
+}
+.img-profile:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 60px rgba(255, 255, 255, 0.7);
+}
+/* ========== 雜誌紙質感・全站基調 ========== */
+:root{
+  --paper-bg: #FAF7F2;            /* 網站底色：溫柔米白 */
+  --card-bg: #FFFCF7;             /* 卡片底色：更暖一點 */
+  --ink-900:#2B2B2B;              /* 內文墨色 */
+  --ink-600:#5A5A5A;              /* 次要文字 */
+  --rule:#E9E2D8;                 /* 細分隔線 */
+  --accent:#6C7A89;               /* 低飽和強調色（連結/小標） */
+}
+
+html, body {
+  background: var(--paper-bg);
+  color: var(--ink-900);
+}
+
+/* 內文可讀性：行距與微字距 */
+p, li { line-height: 1.85; letter-spacing: .2px; color: var(--ink-900); }
+
+/* 連結：低調、有質感 */
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: .2s; }
+a:hover { border-bottom-color: currentColor; opacity: .9; }
+
+/* 分隔線更像雜誌排版 */
+hr.m-0 { border: 0; height: 1px; background: var(--rule); opacity: .8; }
+
+/* 側邊 Navbar 顏色柔和一點（如需） */
+.navbar.bg-primary { background-color: rgba(108,122,137,.9) !important; }
+.navbar .nav-link { text-transform: none; letter-spacing:.5px; }
+
+/* ========== Section → 變成一張張紙卡 ========== */
+.resume-section { padding: 80px 0; }
+.resume-section .resume-section-content{
+  max-width: 860px;  margin: 0 auto;
+
+  /* 紙張感：淡色底＋極輕陰影＋細邊 */
+  background: var(--card-bg);
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+  padding: 28px 28px 34px;
+
+  box-shadow:
+    0 10px 26px rgba(0,0,0,.06),
+    0 2px 6px rgba(0,0,0,.05);
+
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+/* 微微浮起（低調就好） */
+.resume-section .resume-section-content:hover{
+  transform: translateY(-3px);
+  box-shadow:
+    0 16px 40px rgba(0,0,0,.08),
+    0 4px 10px rgba(0,0,0,.06);
+}
+
+/* 標題排版：下方細分隔線像欄位標 */
+.resume-section .resume-section-content h2{
+  font-weight: 700;
+  letter-spacing: .6px;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--rule);
+}
+
+/* 次標／小節標題 */
+.subheading { color: var(--ink-600); letter-spacing: .4px; }
+
+/* 清單的勾勾與段落距更整齊 */
+.fa-ul { margin-left: 1.2rem; }
+.fa-ul > li { margin: 10px 0 16px; }
+.fa-li { top: .2em; }
+
+/* Skills 的 icon 低彩度＋微互動 */
+.dev-icons i { color: #8E8E8E; transition: .25s; }
+.dev-icons i:hover { transform: translateY(-3px); color: var(--accent); }
+
+/* 卡片內的小圖/頭像加柔和邊框（如果用得到） */
+.img-profile { box-shadow: 0 6px 18px rgba(0,0,0,.08); border: 3px solid #fff; }
+
+/* 手機排版優化 */
+@media (max-width: 768px){
+  .resume-section{ padding: 56px 0; }
+  .resume-section .resume-section-content{ padding: 22px 18px 26px; border-radius: 14px; }
+  h1{ font-size: 2rem; }
+  h2{ font-size: 1.5rem; }
+}
+
+/* 全站紙紋 */
+body{
+  background-image: url('assets/img/paper-texture.png');
+  background-size: 600px auto;         /* 紋理要大、要淡 */
+  background-repeat: repeat;
+  image-rendering: -webkit-optimize-contrast;
+  opacity: .995; /* 防止瀏覽器過度銳利化 */
+}
+
+/* 卡片內再疊一點點更細的紙紋（超淡） */
+.resume-section .resume-section-content{
+  background-image: url('assets/img/paper-texture.png');
+  background-size: 800px auto;
+  background-blend-mode: multiply;
+}
+
+.resume-section .resume-section-content .subheading,
+.resume-section .resume-section-content h3{
+  letter-spacing: .8px;
+}
